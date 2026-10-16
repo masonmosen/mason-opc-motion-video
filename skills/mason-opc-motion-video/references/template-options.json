@@ -1,0 +1,263 @@
+{
+  "sourceCommit": "31a03c36b5f510303305f9e931c448b75baa52d5",
+  "options": [
+    {
+      "id": "01-A",
+      "title": "原片节奏",
+      "family": "现代图文口播",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "证据组：三段本期真实视频"
+      ],
+      "demo": "assets/demos/01-A.mp4",
+      "preview": "assets/demos/01-A.gif",
+      "portrait": {
+        "selection": "classic-performance@1.1.1-candidate",
+        "groups": 3,
+        "directory": "packs/classic-performance/1.1.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "classic-performance@1.0.0",
+        "groups": 3,
+        "directory": "packs/classic-performance/1.0.0",
+        "status": "stable"
+      }
+    },
+    {
+      "id": "01-B",
+      "title": "连续形变",
+      "family": "现代图文口播",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "演示或证据组：本期真实视频"
+      ],
+      "demo": "assets/demos/01-B.mp4",
+      "preview": "assets/demos/01-B.gif",
+      "portrait": {
+        "selection": "continuous-performance@1.1.1-candidate",
+        "groups": 2,
+        "directory": "packs/continuous-performance/1.1.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "continuous-performance@1.0.0",
+        "groups": 2,
+        "directory": "packs/continuous-performance/1.0.0",
+        "status": "stable"
+      }
+    },
+    {
+      "id": "01-C",
+      "title": "纵深舞台",
+      "family": "现代图文口播",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "演示或证据组：本期真实视频"
+      ],
+      "demo": "assets/demos/01-C.mp4",
+      "preview": "assets/demos/01-C.gif",
+      "portrait": {
+        "selection": "stage-performance@1.1.1-candidate",
+        "groups": 3,
+        "directory": "packs/stage-performance/1.1.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "stage-performance@1.0.0",
+        "groups": 3,
+        "directory": "packs/stage-performance/1.0.0",
+        "status": "stable"
+      }
+    },
+    {
+      "id": "01-D",
+      "title": "杂志分屏",
+      "family": "现代图文口播",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "演示或证据组：本期真实视频"
+      ],
+      "demo": "assets/demos/01-D.mp4",
+      "preview": "assets/demos/01-D.gif",
+      "portrait": {
+        "selection": "editorial-performance@1.2.1-candidate",
+        "groups": 13,
+        "directory": "packs/editorial-performance/1.2.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "editorial-performance@1.2.0-candidate",
+        "groups": 13,
+        "directory": "packs/editorial-performance/1.2.0-candidate",
+        "status": "candidate"
+      }
+    },
+    {
+      "id": "01-E",
+      "title": "节拍字效",
+      "family": "现代图文口播",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "演示或证据组：本期真实视频"
+      ],
+      "demo": "assets/demos/01-E.mp4",
+      "preview": "assets/demos/01-E.gif",
+      "portrait": {
+        "selection": "kinetic-performance@1.2.1-candidate",
+        "groups": 4,
+        "directory": "packs/kinetic-performance/1.2.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "kinetic-performance@1.2.0-candidate",
+        "groups": 4,
+        "directory": "packs/kinetic-performance/1.2.0-candidate",
+        "status": "candidate"
+      }
+    },
+    {
+      "id": "02-A",
+      "title": "纸面天平",
+      "family": "纸面透视讲解",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "透明插图"
+      ],
+      "demo": "assets/demos/02-A.mp4",
+      "preview": "assets/demos/02-A.gif",
+      "portrait": {
+        "selection": "paper-balance@1.1.1-candidate",
+        "groups": 1,
+        "directory": "packs/paper-balance/1.1.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "paper-balance@1.0.0",
+        "groups": 1,
+        "directory": "packs/paper-balance/1.0.0",
+        "status": "stable"
+      }
+    },
+    {
+      "id": "02-B",
+      "title": "纸面聚合",
+      "family": "纸面透视讲解",
+      "requires": [
+        "本期真人口播",
+        "对应文案",
+        "固定 SHA 的优设标题黑字体文件（externalFontFiles.title）"
+      ],
+      "demo": "assets/demos/02-B.mp4",
+      "preview": "assets/demos/02-B.gif",
+      "portrait": {
+        "selection": "paper-ball-performance@1.1.1-candidate",
+        "groups": 2,
+        "directory": "packs/paper-ball-performance/1.1.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "paper-ball-performance@1.0.0",
+        "groups": 2,
+        "directory": "packs/paper-ball-performance/1.0.0",
+        "status": "stable"
+      }
+    },
+    {
+      "id": "03-A",
+      "title": "多屏展陈",
+      "family": "深色 3D",
+      "requires": [
+        "本期真人口播与对应文案",
+        "所选场景的真实作品、比较视频与软件录屏",
+        "按场景提供头像、标识、作品清单与来源图标"
+      ],
+      "demo": "assets/demos/03-A.mp4",
+      "preview": "assets/demos/03-A.gif",
+      "portrait": {
+        "selection": "anim4-showcase-macro@1.3.2-candidate",
+        "groups": 10,
+        "directory": "packs/dark-3d-showcase/1.3.2-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "anim4-showcase-macro@1.3.1-candidate",
+        "groups": 10,
+        "directory": "packs/dark-3d-showcase/1.3.1-candidate",
+        "status": "candidate"
+      }
+    },
+    {
+      "id": "04-A",
+      "title": "仪器台演示",
+      "family": "深色科技控制台",
+      "requires": [
+        "本期已剪辑口播与文案、实际动作锚点",
+        "所选组的图片与显式grainTexture",
+        "固定SHA的Geist/GeistMono字体文件"
+      ],
+      "demo": "assets/demos/04-A.mp4",
+      "preview": "assets/demos/04-A.gif",
+      "portrait": {
+        "selection": "doubao-console-performance@0.3.1-candidate",
+        "groups": 4,
+        "directory": "packs/doubao-console-performance/0.3.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "doubao-console-performance@0.3.0-candidate",
+        "groups": 4,
+        "directory": "packs/doubao-console-performance/0.3.0-candidate",
+        "status": "candidate"
+      }
+    },
+    {
+      "id": "05-A",
+      "title": "角色与物件接力",
+      "family": "鲜色角色叙事",
+      "requires": [
+        "本期口播、文案与真实关键词时码",
+        "交接组：三幅获授权贴纸，准备者/物件/接收者",
+        "显式纹理与固定SHA的Geist/GeistMono字体"
+      ],
+      "demo": "assets/demos/05-A.mp4",
+      "preview": "assets/demos/05-A.gif",
+      "portrait": {
+        "selection": "vivid-sticker-performance@0.2.1-candidate",
+        "groups": 5,
+        "directory": "packs/vivid-sticker-performance/0.2.1-candidate",
+        "status": "candidate"
+      },
+      "landscape": {
+        "selection": "vivid-sticker-performance@0.2.0-candidate",
+        "groups": 5,
+        "directory": "packs/vivid-sticker-performance/0.2.0-candidate",
+        "status": "candidate"
+      }
+    },
+    {
+      "id": "06-A",
+      "title": "原生竖屏",
+      "family": "活力色彩",
+      "requires": [
+        "本期口播、文案与准确动作时码",
+        "grainTexture与固定SHA的Anton/Geist Mono字体",
+        "当前平台可用且许可明确的中文字体"
+      ],
+      "demo": "assets/demos/06-A.mp4",
+      "preview": "assets/demos/06-A.gif",
+      "portrait": {
+        "selection": "vibrant-color-performance@0.1.1-candidate",
+        "groups": 7,
+        "directory": "packs/vibrant-color-performance/0.1.1-candidate",
+        "status": "candidate"
+      }
+    }
+  ]
+}

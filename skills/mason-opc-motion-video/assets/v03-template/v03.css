@@ -1,0 +1,19 @@
+:root{--ink:#10121c;--paper:#f7f7f5;--blue:#2462ea;--light:#91b4ff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#stage{width:1080px;height:1920px;overflow:hidden;background:var(--paper)}
+body{font-family:'Adu Sans',sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:relative;color:var(--ink)}
+#field,#world,#camera,#type,#graphic,#ov,#fx{position:absolute;inset:0;pointer-events:none}
+#field{z-index:0}#camera{z-index:2;transform-origin:540px 960px}
+#carrier{position:absolute;overflow:hidden;border:2px solid #aac1ed;border-radius:36px;background:white;box-shadow:0 28px 70px #101b3c25;transform-origin:50% 50%;will-change:transform,width,height}
+#demo{position:absolute;inset:0;width:100%;height:100%}
+#actor{position:absolute;overflow:hidden;background:#41606a;border:3px solid #e1ebff;border-radius:36px;box-shadow:0 22px 54px #10234435;z-index:6;transform-origin:50% 50%}
+#actor img{position:absolute;display:block;max-width:none}
+#type{z-index:8}.type{position:absolute;line-height:1.04;font-weight:850;letter-spacing:-5px;white-space:nowrap;transform-origin:0 50%}
+.mini{font:600 29px 'Adu Mono',sans-serif;letter-spacing:1px}.type span{display:inline-block}
+.bubble{border:3px solid currentColor;border-radius:42px;padding:16px 28px;font-size:37px;font-weight:700;letter-spacing:-1px;background:#fff;color:#10121c;box-shadow:6px 8px 0 #2462ea22}
+#caption{position:absolute;left:60px;right:130px;top:1645px;text-align:center;z-index:15;font-size:51px;font-weight:750;line-height:1.28;color:#fff;white-space:pre-line;-webkit-text-stroke:1.3px #10121c;paint-order:stroke fill;text-shadow:0 2px 5px #000c,0 0 2px #000;letter-spacing:-1px}
+#brand{position:absolute;left:64px;top:85px;font-size:31px;font-weight:850;letter-spacing:2px;z-index:16}#brand span{font:500 22px 'Adu Mono';letter-spacing:.5px;margin-left:18px;opacity:.6}
+#disclosure{position:absolute;left:64px;bottom:78px;font-size:25px;font-weight:550;letter-spacing:1px;z-index:16;opacity:.7}
+#progress{position:absolute;left:64px;bottom:52px;width:952px;height:4px;background:#2462ea;transform-origin:left;z-index:16}
+#fx{z-index:13}#ov{z-index:14}

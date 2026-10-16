@@ -1,0 +1,96 @@
+{
+  "schema": "mason-opc-motion-episode/1",
+  "mode": "reviewed-variant",
+  "contentEvidence": "Synthetic test card and audio tone only; captions describe the demo, not spoken words. Technical installation/export smoke test, not narration or aesthetic acceptance.",
+  "profile": {
+    "brand": "Motion Demo",
+    "creator": "Demo",
+    "displayName": "DEMO",
+    "tagline": "TECHNICAL SAMPLE"
+  },
+  "disclosure": "合成占位樣例 · 無真人配音",
+  "labels": {
+    "hook": "動效，跟著內容",
+    "know": "口播編排",
+    "zero": "從素材開始",
+    "hookTag": "MOTION / TECH DEMO",
+    "chatH": "告別單一<br>固定小窗",
+    "era": "畫面回應",
+    "gem": "Motion",
+    "breakH": "內容驅動畫面",
+    "oldAI": "常見卡點",
+    "painA": "人物被裁切",
+    "painB": "圖文互相擋",
+    "painC": "每段都一樣",
+    "limitH": "先排好節奏",
+    "smash": "拆解<br>再重組",
+    "memN": "示範 01",
+    "memH": "資料匯入",
+    "memNum": "INPUT",
+    "physN": "示範 02",
+    "physH": "立體光影",
+    "swarmN": "示範 03",
+    "singleH": "從一個任務",
+    "swarmH": "分工再匯合",
+    "cmd": "依內容安排",
+    "deliveryH": "協作交付",
+    "team": "口播<br>圖聲<br>共演",
+    "upgrade": "完成<br>之後？",
+    "life": "看聽<br>檢查<br>精進",
+    "finalGem": "Motion",
+    "world": "可編輯底稿<br>持續進階",
+    "next": "你的<br>新片",
+    "now": "現在<br>開始",
+    "bubble": "怎麼變得更清楚？"
+  },
+  "diagramMemoryLabel": "INPUT",
+  "roles": [
+    "策劃",
+    "畫面",
+    "聲音",
+    "驗收"
+  ],
+  "presenter": {
+    "sourceSha256": "generated-by-make-demo",
+    "headBox": {
+      "x": 115,
+      "y": 135,
+      "w": 310,
+      "h": 425
+    },
+    "scope": "Synthetic source only; measure your actual complete head before real production"
+  },
+  "timeMap": [
+    [
+      0,
+      0
+    ],
+    [
+      40.56666666666667,
+      12
+    ]
+  ],
+  "subtitles": [
+    {
+      "id": "d1",
+      "t0": 0,
+      "t1": 4,
+      "zh": "合成佔位圖｜工程與導出測試",
+      "en": ""
+    },
+    {
+      "id": "d2",
+      "t0": 4,
+      "t1": 8,
+      "zh": "人物框與動態圖形演示",
+      "en": ""
+    },
+    {
+      "id": "d3",
+      "t0": 8,
+      "t1": 12,
+      "zh": "真實製作請換成自己的口播",
+      "en": ""
+    }
+  ]
+}

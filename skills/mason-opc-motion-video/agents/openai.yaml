@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mason OPC 口播动效工坊"
+  short_description: "复用已采用的口播反应流，并完整安装与选用阿杜多风格模板"
+  default_prompt: "使用 $mason-opc-motion-video，检查口播素材，按 Mason v03 基线或完整模板库制作并验证新的动效视频。"

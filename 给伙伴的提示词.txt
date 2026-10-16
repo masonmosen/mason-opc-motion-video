@@ -1,0 +1,1 @@
+请完整安装 https://github.com/masonmosen/mason-opc-motion-video 的「Mason OPC 口播动效工坊」。先读 README.md 与 SKILL.md，按说明安装完整阿杜模板家族和本地依赖，保护已有改文与账号凭据。运行整包校验、doctor、完整模板目录与公开技术样例；再用我提供的无字口播和逐字稿做新片，输出可编辑工程、MP4、QA 和未验证项。不调用付费 API，不自动发布。不要把只复制技能或合成占位测试称为真人口播验收。
