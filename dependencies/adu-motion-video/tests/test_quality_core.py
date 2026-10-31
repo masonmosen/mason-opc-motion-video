@@ -19,7 +19,7 @@ class QualityCoreTests(unittest.TestCase):
     def test_layout_uses_actual_frozen_selection_and_reports_unsupported(self):
         land = library(layout='landscape'); port = library(layout='portrait')
         self.assertEqual(next(e for e in land if e['styleId']=='01-A')['selection'], 'classic-performance@1.0.0')
-        self.assertEqual(next(e for e in port if e['styleId']=='01-A')['selection'], 'classic-performance@1.1.0-candidate')
+        self.assertEqual(next(e for e in port if e['styleId']=='01-A')['selection'], 'classic-performance@1.1.1-candidate')  # Existing catalog default, unchanged by the signature update.
         self.assertEqual(capabilities(land,'landscape')['availableStyles'],10)
         self.assertEqual(capabilities(port,'portrait')['availableStyles'],11)
 

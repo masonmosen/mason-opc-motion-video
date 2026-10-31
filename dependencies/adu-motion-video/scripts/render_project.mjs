@@ -7,6 +7,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { spawn, spawnSync } from 'node:child_process';
 import { chrome } from './chrome.mjs';
+import { createSignature } from './output-signature.mjs';
 const help = `Usage: node render_project.mjs ENTRY.html [options]
   --output FILE.mp4                 Export a new MP4 (never overwrite)
   --probe                          Read runtime END without exporting
@@ -14,6 +15,7 @@ const help = `Usage: node render_project.mjs ENTRY.html [options]
   --optional-data face.js,subs.js   Explicit missing local script allow-list
   --stills-dir NEW_DIR --times 1,4  Save PNG keyframes in a new directory
   --start 0 --end SECONDS           Video range; end defaults to window.END
+  --timeline-end SECONDS            Whole output duration for parallel slices
   --fps 60 --width 1920 --height 1080
   --audio FILE                      Local full-timeline audio, trimmed at start
   --playwright-module PATH          Existing playwright/core module or directory
@@ -28,7 +30,7 @@ function parse() {
   const argv = process.argv.slice(2), opt = { fps: 60, start: 0 };
   if (argv.includes('--help') || !argv.length) { console.log(help); process.exit(0); }
   opt.entry = path.resolve(argv.shift());
-  const allowed = ['probe', 'query', 'optional-data', 'output', 'stills-dir', 'times', 'start', 'end', 'fps', 'width', 'height', 'audio', 'playwright-module', 'browser'];
+  const allowed = ['probe', 'query', 'optional-data', 'output', 'stills-dir', 'times', 'start', 'end', 'timeline-end', 'fps', 'width', 'height', 'audio', 'playwright-module', 'browser'];
   while (argv.length) {
     const key = argv.shift().replace(/^--/, '');
     if (key === 'probe') { opt.probe = true; continue; }
@@ -44,7 +46,7 @@ function parse() {
   }
   if(dimensions&&((opt.width!==undefined&&+opt.width!==dimensions[0])||(opt.height!==undefined&&+opt.height!==dimensions[1])))throw Error('Viewport differs from project layout; rebuild the native layout first');
   opt.width??=dimensions?.[0]??1920;opt.height??=dimensions?.[1]??1080;
-  for (const key of ['start', 'end', 'fps', 'width', 'height']) {
+  for (const key of ['start', 'end', 'timeline-end', 'fps', 'width', 'height']) {
     if (opt[key] !== undefined && (!Number.isFinite(opt[key] = Number(opt[key])) || opt[key] < 0)) throw Error(`Invalid --${key}`);
   }
   if (![opt.fps, opt.width, opt.height].every(x => Number.isInteger(x) && x > 0)) throw Error('fps/width/height must be positive integers');
@@ -138,7 +140,9 @@ async function main() {
     await page.evaluate(async () => {
       await Promise.race([Promise.resolve(window.READY), new Promise((_, reject) => setTimeout(() => reject(Error('READY timed out')), 90000))]);
     });
+    let signature;
     async function frame(t = null) {
+      if (signature) await signature.before();
       await page.evaluate(async time => {
         await Promise.race([(async () => {
           if (time !== null) await window.renderAt(time);
@@ -179,6 +183,7 @@ async function main() {
           }
         })(), new Promise((_, reject) => setTimeout(() => reject(Error('Font/image/frame readiness timed out')), 30000))]);
       }, t);
+      if (signature && t !== null) await signature.draw(t);
       check();
     }
     await frame();
@@ -186,6 +191,21 @@ async function main() {
     if (!Number.isFinite(end) || end <= 0) throw Error('Set --end or provide a positive window.END');
     if (opt.probe) {
       check(); report = { entry: opt.entry, end, fps: opt.fps, width: opt.width, height: opt.height, browser: browserPath }; return;
+    }
+    // A slice end is not the whole film's clock. All parallel parts receive
+    // the same quantized timeline end from export_project.py.
+    const timelineEnd = opt['timeline-end'] ?? end;
+    if (!Number.isFinite(timelineEnd) || timelineEnd <= 0 || timelineEnd + 1 / opt.fps < end) throw Error('Invalid whole output --timeline-end');
+    const configFile = path.join(path.dirname(opt.entry), 'output-signature.json');
+    const config = fs.existsSync(configFile) ? JSON.parse(fs.readFileSync(configFile, 'utf8')) : { schema: 'adu-output-signature/1', enabled: true };
+    if (config.schema !== 'adu-output-signature/1' || typeof config.enabled !== 'boolean') throw Error('Invalid output-signature.json');
+    if (config.enabled) {
+      const base = path.dirname(opt.entry);
+      if (config.assets !== undefined && typeof config.assets !== 'string') throw Error('Signature asset directory must be a relative string');
+      const assets = config.assets === undefined ? fileURLToPath(new URL('../template/brand/', import.meta.url)) : path.resolve(base, config.assets);
+      if (config.assets !== undefined && (typeof config.assets !== 'string' || path.isAbsolute(config.assets) || path.relative(base, assets).startsWith('..'))) throw Error('Signature assets must be inside the project');
+      const selector = await page.locator('#stage').count() ? '#stage' : 'body';
+      signature = await createSignature(page, { width: opt.width, height: opt.height, duration: timelineEnd, fps: opt.fps, selector, mode: 'dom', assets });
     }
     if (opt['stills-dir']) {
       if (opt.times.some(t => t >= end)) throw Error('Still times must precede END/--end');
@@ -196,7 +216,7 @@ async function main() {
       }
       fs.mkdirSync(opt.target);
       for (const file of fs.readdirSync(temporary)) fs.copyFileSync(path.join(temporary, file), path.join(opt.target, file), fs.constants.COPYFILE_EXCL);
-      report = { output: opt.target, times: opt.times, browser: browserPath };
+      report = { output: opt.target, times: opt.times, signature: signature?.receipt ?? { enabled: false }, browser: browserPath };
       return;
     }
     const first = Math.round(opt.start * opt.fps), last = Math.round(end * opt.fps), count = last - first, duration = count / opt.fps;
@@ -236,7 +256,7 @@ async function main() {
     check();
     fs.copyFileSync(output, opt.target, fs.constants.COPYFILE_EXCL);
     const imageDecodeRetries = await page.evaluate(() => window.ADU_DECODE_RETRIES || 0);
-    report = { output: opt.target, frames: count, fps: opt.fps, duration, start: first / opt.fps, end: last / opt.fps, audio: !!opt.audio, imageDecodeRetries, browser: browserPath, color };
+    report = { output: opt.target, frames: count, fps: opt.fps, duration, start: first / opt.fps, end: last / opt.fps, audio: !!opt.audio, imageDecodeRetries, signature: signature?.receipt ?? { enabled: false }, browser: browserPath, color };
   } finally {
     if (ff && ff.exitCode === null) { ff.kill('SIGKILL'); await ffDone; }
     let shutdownForced = false, shutdownTimer;

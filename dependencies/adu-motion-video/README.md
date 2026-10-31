@@ -175,7 +175,7 @@ MotionGit 是面向 AI 视频创作的开放格式与模板协作平台。新版
 
 ### 继续使用旧版 Skill
 
-已有旧工程或需要沿用仓库制作工具时，仍可 [下载旧版 Skill 3.14.0-rc.1](https://github.com/adunext/adu-motion-video/releases/download/v3.14.0-rc.1/adu-motion-video_3.14.0-rc.1.zip)，按[旧版创作引导](references/start-creating.md)安装和使用。新版 `.motion` 模板优先从 MotionGit 下载。
+已有旧工程或需要沿用仓库制作工具时，仍可 [下载旧版 Skill 3.14.1-rc.1](https://github.com/adunext/adu-motion-video/releases/download/v3.14.1-rc.1/adu-motion-video_3.14.1-rc.1.zip)，按[旧版创作引导](references/start-creating.md)安装和使用。新版 `.motion` 模板优先从 MotionGit 下载。
 
 ---
 
@@ -186,3 +186,7 @@ MotionGit 是面向 AI 视频创作的开放格式与模板协作平台。新版
 **旧版 Skill 与工程维护**：[模板目录](references/template-catalog.md)　·　[创作引导](references/start-creating.md)　·　[安装与制作工具](references/tooling.md)　·　[平台与字体兼容](references/compatibility.md)　·　[旧版发布记录](https://github.com/adunext/adu-motion-video/releases)
 
 阿杜实验室 · Adu-motion-video · [MIT License](LICENSE) · [第三方说明](THIRD_PARTY.md)
+
+### 全模板统一角标
+
+当前旧版 Skill 的所有模板在官方静帧、视频预览及导出中，统一带右上角成片时间与动态 Circle Logo 交替，横竖屏均保留安全边距。旧工程使用新版工具重新导出即可，原文件保留。参见[角标说明](references/output-signature.md)。

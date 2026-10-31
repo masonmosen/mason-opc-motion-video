@@ -67,10 +67,18 @@ def setup(adu,env):
         subprocess.run([selected,'-m','venv',str(adu/'.venv')],check=True)
     if not version_python(python):raise ValueError('Existing dependency venv is below Python 3.12; preserve it and use an isolated supported runtime')
     def doctor():return subprocess.run([str(python),str(adu/'scripts/pipeline.py'),'doctor'],env=env).returncode
-    if doctor()==0:return str(python)
+    def check_vp9_alpha():
+        ffmpeg=shutil.which('ffmpeg',path=env.get('PATH'))
+        if not ffmpeg:raise ValueError('FFmpeg not found')
+        result=subprocess.run([ffmpeg,'-hide_banner','-decoders'],env=env,capture_output=True,text=True,check=True)
+        if 'libvpx-vp9' not in result.stdout:
+            raise ValueError('FFmpeg lacks libvpx-vp9 decoder needed for transparent MotionGit logo; install an FFmpeg 9+ build with libvpx and rerun using --ffmpeg-bin. Existing doctor alone is insufficient.')
+    if doctor()==0:
+        check_vp9_alpha();return str(python)
     # Official setup owns npm/Python dependencies. It does not install OS tools.
     subprocess.run([str(python),str(adu/'scripts/pipeline.py'),'setup'],env=env,check=True)
     if doctor()!=0:raise ValueError('Runtime doctor failed; finish the listed missing tools. Do not report full installation.')
+    check_vp9_alpha()
     return str(python)
 
 def main():
@@ -104,7 +112,9 @@ def main():
     if not ffb:
         candidate=Path.home()/'.local/share/adu-motion-video/runtime/ffmpeg-9.0.2/bin'
         if (candidate/('ffmpeg.exe' if os.name=='nt' else 'ffmpeg')).is_file():ffb=candidate
-    if ffb:env['PATH']=str(ffb.expanduser())+os.pathsep+env.get('PATH','')
+    if ffb:
+        ffb=ffb.expanduser().resolve()
+        env['PATH']=str(ffb)+os.pathsep+env.get('PATH','')
     state.mkdir(parents=True,exist_ok=True)
     config=state/'runtime.json';config.write_text(json.dumps(dict(adu_root=str(adu),ffmpeg_bin=str(ffb.expanduser()) if ffb else None),indent=2),encoding='utf-8')
     host_path=None;host_mode=None
@@ -123,12 +133,23 @@ def main():
         host_path=str(alias)
     status='source_installed_runtime_unverified' if a.source_only else 'runtime_doctor_passed'
     python=None if a.source_only else setup(adu,env)
+    # Public metadata only. Personal .motion packages stay bound to their owner.
+    # A network failure falls back to the dated snapshot and is visible in receipt.
+    catalog_command=[sys.executable,str(target/'scripts/website_catalog.py'),'--refresh','--summary','--cache',str(state/'website-catalog.json')]
+    if a.source_only:
+        catalog_status={'origin':'bundled-snapshot','refreshError':None,'note':'source-only skips network'}
+    else:
+        try:
+            result=subprocess.run(catalog_command,env=env,capture_output=True,text=True,timeout=25,check=True)
+            catalog_status=json.loads(result.stdout)
+        except (OSError,subprocess.SubprocessError,ValueError) as error:
+            catalog_status={'origin':'bundled-fallback','refreshError':type(error).__name__}
     receipt=dict(version=record['version'],createdAt=datetime.now(timezone.utc).isoformat(),
         skill=str(target),adu=str(adu),runtimeConfig=str(config),python=python,host=a.host,
         hostPath=host_path,hostMode=host_mode,status=status,
         discovery='New chat/reload and native host listing still required',
         production='Run an actual sample; doctor alone is not end-to-end media acceptance',
-        credentialsCopied=False,paidCalls=0)
+        credentialsCopied=False,paidCalls=0,websiteCatalog=catalog_status)
     (state/'install_receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(receipt,ensure_ascii=False,indent=2))
 

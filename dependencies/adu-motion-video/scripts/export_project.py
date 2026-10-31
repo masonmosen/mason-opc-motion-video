@@ -128,7 +128,7 @@ def sources(project):
                          {'node_modules', '__pycache__', 'parts', 'vparts', 'stills'})
         for name in sorted(names):
             p = Path(root) / name
-            if p.suffix.lower() in {'.html', '.js', '.mjs', '.css', '.json', '.py', '.srt', '.vtt', '.wav', '.mp3', '.aac', '.m4a', '.flac', '.ogg', '.jpg', '.jpeg', '.png', '.webp', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.bin', '.txt'} and p.is_file():
+            if p.suffix.lower() in {'.html', '.js', '.mjs', '.css', '.json', '.py', '.srt', '.vtt', '.wav', '.mp3', '.aac', '.m4a', '.flac', '.ogg', '.jpg', '.jpeg', '.png', '.webp', '.svg', '.webm', '.woff', '.woff2', '.ttf', '.otf', '.bin', '.txt'} and p.is_file():
                 result[p.relative_to(project).as_posix()] = fingerprint_file(p)['sha256']
     font_receipt = project / 'font_policy.json'
     if font_receipt.exists():
@@ -227,6 +227,7 @@ def main():
     if count < 1:
         parser.error('duration must contain at least one frame')
     duration = count / args.fps
+    common.extend(['--timeline-end', duration])
     if audio:
         data = probe(audio)
         track = next((s for s in data['streams'] if s['codec_type'] == 'audio'), None)
@@ -262,6 +263,9 @@ def main():
             futures = [pool.submit(segment, i) for i in range(k)]
             for future in as_completed(futures):
                 segments.append(future.result())
+        signatures = [json.loads(s['renderer_output']).get('signature') for s in segments]
+        if any(signature != signatures[0] for signature in signatures):
+            raise RuntimeError('Output signature differs between segments; export rejected')
         if sources(project) != original_sources or (audio and fingerprint_file(audio) != audio_identity):
             raise RuntimeError('Project source changed during rendering; export rejected. Render again after edits finish.')
         try:
@@ -288,6 +292,7 @@ def main():
                   'output_sha256': identity['sha256'], 'output_size_bytes': identity['sizeBytes'],
                   'project': str(project), 'entry': str(entry), 'output': str(output), 'fps': args.fps,
                   'width': args.width, 'height': args.height, 'frames': count, 'duration': duration,
+                  'output_signature': signatures[0],
                   'audio': str(audio) if audio else None, 'segments': sorted(segments, key=lambda s: s['index']),
                   'source_sha256': original_sources, 'audio_identity': audio_identity, 'reused_segments': False, 'color': export_plan(),
                   'verification': 'all segment exits + frame counts; concat/mux metadata; every display timestamp; complete media decode',

@@ -60,12 +60,19 @@ def main():
     s=p.add_subparsers(dest='cmd',required=True)
     s.add_parser('doctor')
     c=s.add_parser('catalog');c.add_argument('--layout',choices=['portrait','landscape'],default='portrait')
+    w=s.add_parser('web-catalog');w.add_argument('--layout',choices=['all','portrait','landscape'],default='all');w.add_argument('--refresh',action='store_true');w.add_argument('--summary',action='store_true');w.add_argument('--html')
     v=s.add_parser('prepare-v03');v.add_argument('--input',required=True);v.add_argument('--episode',required=True);v.add_argument('--out',required=True)
     a=s.add_parser('audio');a.add_argument('project')
     q=s.add_parser('qa-v03');q.add_argument('project');q.add_argument('--out',required=True)
     n=s.add_parser('pipeline');n.add_argument('args',nargs=argparse.REMAINDER)
     m=s.add_parser('inspect-motion');m.add_argument('file');m.add_argument('--save-private',action='store_true')
     args=p.parse_args()
+    if args.cmd=='web-catalog':
+        command=[sys.executable,ROOT/'scripts/website_catalog.py','--layout',args.layout]
+        if args.refresh:command.append('--refresh')
+        if args.summary:command.append('--summary')
+        if args.html:command.extend(['--html',args.html])
+        call(command);return
     if args.cmd=='inspect-motion':
         from inspect_motion import inspect
         print(json.dumps(inspect(Path(args.file),args.save_private),ensure_ascii=False,indent=2));return

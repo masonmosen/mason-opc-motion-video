@@ -37,3 +37,6 @@
 用户说“加载这个 skill，引导我开始创作”时，读取 references/start-creating.md，清楚说明先发素材、方向/画幅和可选补充，再推荐匹配模板；不要只说已加载、不告诉用户下一步。已有素材直接核对推进，不能重复要求用户填写复杂配置。
 
 3.14.0-rc.1：字体为优先推荐项，默认 preferred，缺少原字体时自动使用随包 Noto 字体并记录替换；不得因原字体 SHA、macOS SF Mono 或 Vision 缺失要求用户停工。检查实际文字布局与裁切，只有明确要求精确字体时启用 exact。运行入口、依赖选择与验证边界见 references/compatibility.md。
+
+## 统一角标（3.14.1-rc.1）
+所有模板、旧工程均通过当前 `pipeline.py stills/render`（或兼容 render/export 入口）输出右上角时间与动态 Circle Logo；不要修改冻结 pack、叠加第二套角标或使用源片时间。横竖屏和混合模板共用整片时钟。具体设计、可关闭配置与验证范围见 references/output-signature.md。

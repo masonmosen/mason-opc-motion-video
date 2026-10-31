@@ -2,8 +2,8 @@
 name: mason-opc-motion-video
 description: Mason OPC 口播动效工坊，制作、改版和审查口播动效视频；沿用 Mason 已阶段采用的 v03 口播反应流，或从完整阿杜模板库选型。含 .motion 安装引导、完整人物取景、语义运镜、配乐音效及团队进阶底稿。不用于代替数字人生成或自动发布。
 metadata:
-  version: "1.0.1"
-  upstream: "adunext/adu-motion-video@31a03c36b5f510303305f9e931c448b75baa52d5"
+  version: "1.1.0"
+  upstream: "adunext/adu-motion-video@4a52ae2cff542cfb0bfcf6e93e5120c55d0110cf"
 ---
 
 # Mason OPC 口播动效工坊
@@ -13,6 +13,14 @@ metadata:
 与已有Mason栏目并存：用户点名AI Signal、V9课程或某条既有制作线时保留该线规则；指定v03、.motion／阿杜或明确选新路线时使用本技能，不擅自替换其他系列基线。
 
 公开源码：[masonmosen/mason-opc-motion-video](https://github.com/masonmosen/mason-opc-motion-video)。通过 npx 安装后，先按 references/install.md 运行 bootstrap.py 完成完整模板和渲染依赖。公开包不包含 Mason 私有人物／声音素材；本地内部参考包单独保存。
+
+## 用户说“做 Motion 视频”时
+
+先分析素材、用途、画幅和语义，自主选择 Mason 编排、阿杜完整家族或 MotionGit 个人模板。已有制作授权时直接推进；不要固定沿用某个 v03，或把不同原生风格改成同一种信息卡。已指定风格、栏目和素材优先。只要求分析时不自动制作；这项委托不扩大付费、发布或私人包分享权限。
+
+## MotionTemplates 网站全目录
+
+运行 `python scripts/motion.py web-catalog --refresh` 刷新公开目录，或 `web-catalog --layout portrait` 查看竖屏；安装时也尝试刷新，离线回退日期快照并报告。快照覆盖2026-10-31目录73个模板及其额外画幅、一个仅预览项目。官网实时条目、横竖屏、版本与实际下载状态须重新核对。目录条目不是已取得的制作包；官网个人包与账户凭据不放入公开Skill。需要个人包时用本人的账户取得、验签并私有保存，升级保留原包与工程；不开通付费或外发素材。用户明确要求完整领取免费包时，逐项检查官网当前开放与价格，按授权为本人领取、验证和登记；已持有的用官网可信更新器保留旧包另存新版。关闭、付费或受阻项明确报告，不凭目录数量声称全部安装。
 
 ## 先选择本次工作
 

@@ -11,7 +11,7 @@ python3 install.py --dest ~/.agents/skills --host codex
 
 Windows 使用 `py` 或 `python`，把目标换成本机技能目录。Hermes 用 `--host hermes`，Claude Code 用 `--host claude`；它们建立同源发现入口。其他可读写文件、运行命令的 Agent 用 `--host generic` 并按宿主文档接入。不能只复制 SKILL.md。
 
-本仓库包含完整公开阿杜依赖：1,031 个文件、竖屏 11 风格 / 54 组、横屏 10 风格 / 47 组。所有字体与第三方许可随包保留。个人 `.motion` 不在此整库范围，按 motion-packages.md 使用自己的账号另取。
+本仓库包含完整公开阿杜依赖：1,042 个文件、竖屏 11 风格 / 54 组、横屏 10 风格 / 47 组。所有字体与第三方许可随包保留。个人 `.motion` 不在此整库范围，按 motion-packages.md 使用自己的账号另取。
 
 ## 已通过 npx 装入技能
 
@@ -37,3 +37,7 @@ python3 ~/.agents/skills/mason-opc-motion-video/scripts/bootstrap.py --dest ~/.a
 2. 刷新宿主或新建对话，确认技能被发现；列出 portrait / landscape 模板。
 3. 先跑 [公开技术样例](../assets/demo-episode.json) 的生成器，见仓库 README；该样例是合成占位人像与提示音，不含真人或配音，只验证工程、音画和导出。
 4. 再用自己的无字口播：重新量 headBox、绑定输入 SHA、对齐真实字幕与语义时钟，输出新工程、MP4、QA 和 STATUS。只有真实片经过连续看听与用户评价才算内容验收。
+
+安装器会尝试更新公开网站目录，receipt中websiteCatalog的origin表明live或bundled-fallback；不能把目录条目当作已下载的个人模板。
+
+新版动态角标依赖 FFmpeg 的 libvpx-vp9 透明解码器。安装器在 doctor 之外单独检查；如缺失，请使用带 libvpx 的 FFmpeg 9+ 并通过 --ffmpeg-bin 指定，不要仅凭 doctor 声称可导出。

@@ -1,4 +1,4 @@
-# Mason OPC 口播动效工坊 1.0.1
+# Mason OPC 口播动效工坊 1.1.0
 
 Mason OPC 的口播编排、完整头型取景、音画编排、QA 和团队复用封装，采用 MIT 许可；源自 Mason 阶段采用的 01-B v03。
 

@@ -1,12 +1,12 @@
 {
   "schema": "mason-opc-motion-teamkit/1",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Mason OPC 口播动效工坊",
   "edition": "public",
   "adu": {
-    "version": "3.14.0-rc.1",
-    "commit": "31a03c36b5f510303305f9e931c448b75baa52d5",
-    "sourceFiles": 1031
+    "version": "3.14.1-rc.1",
+    "commit": "4a52ae2cff542cfb0bfcf6e93e5120c55d0110cf",
+    "sourceFiles": 1042
   },
   "files": {
     ".gitignore": {
@@ -14,8 +14,8 @@
       "sha256": "fb6edc4ee356dc08a8213000d4042596caa4781281e4cba11ee02c39fd8cefbf"
     },
     "CHANGELOG.md": {
-      "bytes": 610,
-      "sha256": "02f7c3e2658d5c19a1d2d8e8620008be2a747d90a99b90739164d2855b6a2ecd"
+      "bytes": 939,
+      "sha256": "737de031911418f1969ecca59434a4fe24e760785949792e2f05e1e36532df56"
     },
     "LICENSE": {
       "bytes": 1066,
@@ -23,11 +23,11 @@
     },
     "NOTICE.md": {
       "bytes": 1171,
-      "sha256": "c6f97c29f8964c0f1b0b06e09005d53813626620f8450eb5163d184baccf215f"
+      "sha256": "fb39c03f52d5fa4aa741e11fd5414cac5cf25ab405da6b635369abbe061b1224"
     },
     "README.md": {
-      "bytes": 6108,
-      "sha256": "968608bd1156667ad1aa26d7341f51bd08e34e074ddf85faa6ca0d0bd50a2463"
+      "bytes": 7771,
+      "sha256": "803d9b7364f7426061d021c998051993bdc1cfcbcd95e750a685cb27b7c6f33e"
     },
     "dependencies/adu-motion-video/.gitignore": {
       "bytes": 439,
@@ -38,20 +38,20 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "dependencies/adu-motion-video/AGENTS.md": {
-      "bytes": 7989,
-      "sha256": "75cf13e8d2b3f274fff57fb2ef11f996cffa3aa5136a0f310a0f18d9e0ffa0fe"
+      "bytes": 8370,
+      "sha256": "19e68697f633600661ecccf290aee3a0a979277e5088c588497a7ca040a02c68"
     },
     "dependencies/adu-motion-video/LICENSE": {
       "bytes": 1067,
       "sha256": "0f1d5e25e1035cf4fb24809d66dff30642a2d4c5a33837ba7e0e8af4ff66fdfc"
     },
     "dependencies/adu-motion-video/README.md": {
-      "bytes": 12236,
-      "sha256": "e57a2b1a2573f69089fe5cded53cce1d2dbb3202319088be84c0c2dd62ae7ff2"
+      "bytes": 12559,
+      "sha256": "f2d291cdfe2156d5c80889a9596185a07120f61f9a9e4da95d1ddb666e720b93"
     },
     "dependencies/adu-motion-video/SKILL.md": {
-      "bytes": 19430,
-      "sha256": "b6c1d15ff149a00d015af3b96128596a364184471c6a682f00f96138a4e1e771"
+      "bytes": 19796,
+      "sha256": "6554f247f5503b3fdd0f3afb64760e16c85437eefd0aeaf99399309a39a4779c"
     },
     "dependencies/adu-motion-video/THIRD_PARTY.md": {
       "bytes": 6318,
@@ -505,6 +505,10 @@
       "bytes": 3595,
       "sha256": "93cd0819a190c77c6891753d9c40f8ebfcd9568ce351f67e120ceef7ca39c5ea"
     },
+    "dependencies/adu-motion-video/docs/output-signature-3.14.1.md": {
+      "bytes": 2421,
+      "sha256": "748368e1329649ce650afacc3ff28f73bad96140b8fd0da81c9d10fdd3128107"
+    },
     "dependencies/adu-motion-video/docs/portrait-3.7-validation.json": {
       "bytes": 4278,
       "sha256": "95d6c14b6753c6a510ce42cd370a9f3e1501536c2e625d3f14c9c6594d08f0f5"
@@ -687,11 +691,11 @@
     },
     "dependencies/adu-motion-video/package-lock.json": {
       "bytes": 1183,
-      "sha256": "20f674fd7129d68235b6264adb10b0b576481ccac1c72a30a44819808b1e7d8b"
+      "sha256": "a91ed888d1ea16625f5ad8c06dded81c320902c257040a91ca0b8cbeeda1bf1e"
     },
     "dependencies/adu-motion-video/package.json": {
       "bytes": 489,
-      "sha256": "44f76a465bd2a80d4b9cb63e8507fee05adfe178a7a5f2103806ae0575ae9572"
+      "sha256": "de0bcad90be7b9c583adbf0d933cbbd3e85d89fa15c38f662d34e8085c431e9d"
     },
     "dependencies/adu-motion-video/packs/anim3/README.md": {
       "bytes": 7388,
@@ -3549,6 +3553,10 @@
       "bytes": 787,
       "sha256": "766acc09f1229717067c27e2a8e17891232752a1673246ce9b82f0bd25a93a43"
     },
+    "dependencies/adu-motion-video/references/output-signature.md": {
+      "bytes": 2088,
+      "sha256": "7631c0342a95da258f3c8a9cf8b74f92f7c793c7900076547be6b91b746e9fc7"
+    },
     "dependencies/adu-motion-video/references/portrait.md": {
       "bytes": 5759,
       "sha256": "18c6ef4124fdb66edd34ea6ef34ad2582e70f2a638f21e85b89521c1fc81a120"
@@ -3682,8 +3690,8 @@
       "sha256": "cd47e679b68b126b322c86cd466ad14c58b26b62220952ce6091c24e059387b3"
     },
     "dependencies/adu-motion-video/scripts/build_auto_project.py": {
-      "bytes": 14085,
-      "sha256": "eca7db492e8e579370322f6d6aaedd8642c89005dee60992f73774ce980ec3e2"
+      "bytes": 14317,
+      "sha256": "c63b7733346ddb4ab726f096265b39e795575584a33c66fd460782eb2e9c20ef"
     },
     "dependencies/adu-motion-video/scripts/build_macro_project.py": {
       "bytes": 48009,
@@ -3714,8 +3722,8 @@
       "sha256": "4842671cd29a1f803678099382ea36afded69e05e5a95ee264dad36940f57ff3"
     },
     "dependencies/adu-motion-video/scripts/export_project.py": {
-      "bytes": 18014,
-      "sha256": "8f7e30f49c7407309f2ad41a1b9feca5d8f45f53d0b0f0462aa492a8f54d54eb"
+      "bytes": 18380,
+      "sha256": "19e481434bf95aead1d74f0f092dfe300dcc7ec66e447af484e654a2eda394e8"
     },
     "dependencies/adu-motion-video/scripts/extract_authored_pack.py": {
       "bytes": 15192,
@@ -3777,6 +3785,10 @@
       "bytes": 2939,
       "sha256": "961a6933df120f305cc7c14cd0c88970af09bc7127aa57f014379b5fefed0ce9"
     },
+    "dependencies/adu-motion-video/scripts/output-signature.mjs": {
+      "bytes": 13036,
+      "sha256": "386d97d7f716be8ddb3fa7f2ed533e6dcd6980feadd7bcaceb9e4d27f336388c"
+    },
     "dependencies/adu-motion-video/scripts/pack_catalog.py": {
       "bytes": 2888,
       "sha256": "54989b58376367c36f9c1ab9869221b3647eba6b4d3d4759916c9e1d2034baf7"
@@ -3830,8 +3842,8 @@
       "sha256": "30c5b61a612cfe8dc4f16385a67b34d7276808fc177b0a8a49f17a8e7f6c48e3"
     },
     "dependencies/adu-motion-video/scripts/render_project.mjs": {
-      "bytes": 17468,
-      "sha256": "5abd9290a996fbc875f2929f1c766d9b5abb27326877914f5041d968ae399004"
+      "bytes": 19405,
+      "sha256": "5075550a317f8a3d947322ec9b79a886034abdd49206bb9001955696eebbb1db"
     },
     "dependencies/adu-motion-video/scripts/repair_intake.py": {
       "bytes": 2956,
@@ -3881,6 +3893,18 @@
       "bytes": 2683,
       "sha256": "9c6dcf35320af1e9e714d4323d0f10a0aaaee0db737dfa36d4b045791ffee5e8"
     },
+    "dependencies/adu-motion-video/template/brand/NOTICE.txt": {
+      "bytes": 510,
+      "sha256": "571c6f9e546b7a6b7809fbcade4e2dd34a3732412bc4177b5444c6c3a8f5cdb9"
+    },
+    "dependencies/adu-motion-video/template/brand/motiongit-circle-lighter.webm": {
+      "bytes": 165229,
+      "sha256": "1a4dc17a2ea86f4cf6b2745b3ee91d89dbae061e812cf78691d2680362776e0d"
+    },
+    "dependencies/adu-motion-video/template/brand/motiongit-circle-path.webm": {
+      "bytes": 158924,
+      "sha256": "9e9212233683817eef1ed474a192fbf797700f499839f7c7a3e2b96e1fe5ba8e"
+    },
     "dependencies/adu-motion-video/template/config.js": {
       "bytes": 1545,
       "sha256": "14c4c9a10bea93780deb737ea9c8d8702f2bb08e3f9983da8943ec9fd9a5576b"
@@ -3896,6 +3920,10 @@
     "dependencies/adu-motion-video/template/main.js": {
       "bytes": 3101,
       "sha256": "584da71b2dbaa634d29f75185c7f96070186444ae821c8b51f373a9ceae72a10"
+    },
+    "dependencies/adu-motion-video/template/output-signature.json": {
+      "bytes": 81,
+      "sha256": "12ba15dfff29fc7b217505b383cbf536afe8bcf5c658099f7edb65f486fe42c2"
     },
     "dependencies/adu-motion-video/template/scenes.js": {
       "bytes": 1904,
@@ -3916,6 +3944,10 @@
     "dependencies/adu-motion-video/tests/portrait_fixture.py": {
       "bytes": 5482,
       "sha256": "8fe1d0ae27bf729812b93abfb66732da1b8d99638a9bbf0a2da677912686d91f"
+    },
+    "dependencies/adu-motion-video/tests/signature_fixture.py": {
+      "bytes": 6139,
+      "sha256": "3b8440fc80d1b51ccda385ccf41f091b1667e63ca5cba8327a87f15dd1bbac3a"
     },
     "dependencies/adu-motion-video/tests/stress_runtime_fixture.py": {
       "bytes": 4719,
@@ -4017,6 +4049,10 @@
       "bytes": 2347,
       "sha256": "899990100be9d4c179a17f6179ed8d81504c01159520a0d6b177f9aaf0fdf24a"
     },
+    "dependencies/adu-motion-video/tests/test_output_signature.mjs": {
+      "bytes": 1109,
+      "sha256": "46220cf01311ce633db90e62f3d29a010fb70a932d2ae47f7b9370ff235f1c03"
+    },
     "dependencies/adu-motion-video/tests/test_pack_catalog.py": {
       "bytes": 994,
       "sha256": "85422095332f9bcd047e296ec44f27bb368d818a3572e6df16e515892725d80e"
@@ -4026,8 +4062,8 @@
       "sha256": "74dac5d9dbb8c1b757b6dd555d553a3ec1e919c66ae0081f307bdab86fb144ce"
     },
     "dependencies/adu-motion-video/tests/test_portability.py": {
-      "bytes": 4870,
-      "sha256": "d42a08338c9191bf05ad8debec3d6660493a4077d0f4345eae8d92241f9486d7"
+      "bytes": 5098,
+      "sha256": "6067ef0a5c7c8004e116c16503f3b4d2fafd1f52ad449fa37445b7edc679bd50"
     },
     "dependencies/adu-motion-video/tests/test_portability_browser.mjs": {
       "bytes": 1434,
@@ -4066,8 +4102,8 @@
       "sha256": "14a51bb6617a99d4cb3361cd176ce3ada7dc356e7b2f301089a16fe513e13783"
     },
     "dependencies/adu-motion-video/tests/test_quality_core.py": {
-      "bytes": 6843,
-      "sha256": "39291aae4615b9807eb329f3d67c50a7226d1a98dd194073b35f3bb0f0c1b3f3"
+      "bytes": 6907,
+      "sha256": "8cb01ecc701e9e85b52b336d2955618c8252b129fbaae25d8ca664479c4ca599"
     },
     "dependencies/adu-motion-video/tests/test_quality_integration.py": {
       "bytes": 3476,
@@ -4096,6 +4132,14 @@
     "dependencies/adu-motion-video/tests/test_semantic_media.py": {
       "bytes": 4141,
       "sha256": "8931088f4fd91cadab76ef8557f0d228ff6da192d889a6ea6d37f8f7c306f18d"
+    },
+    "dependencies/adu-motion-video/tests/test_signature_browser.mjs": {
+      "bytes": 5885,
+      "sha256": "2c9d002ea64c782db1157bbf7f6524f8695272e27a37814cda13a1ed8dcae229"
+    },
+    "dependencies/adu-motion-video/tests/test_signature_cli.py": {
+      "bytes": 3003,
+      "sha256": "adb703813bdc1d7675ad56b21f49f91dff6f157d69dd4e53adc79e99f089f894"
     },
     "dependencies/adu-motion-video/tests/test_source_registry.py": {
       "bytes": 5089,
@@ -4154,12 +4198,12 @@
       "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d"
     },
     "dependency-lock.json": {
-      "bytes": 237500,
-      "sha256": "da3e7e9c07f7a386a470fd5ff5255ba9fa3d017367d6872e9e2d552368d50819"
+      "bytes": 239849,
+      "sha256": "c8544a0ed2f70650104b37d752c06937828e18c8ccd95fb7d4dcb83098a56ecb"
     },
     "install.py": {
-      "bytes": 8408,
-      "sha256": "6500515e6c22a98abdb2d11f7a5d862b8b8684eac0ce0887bb56369f37d50f07"
+      "bytes": 9834,
+      "sha256": "6ae49a7d25d13ef0d87cb90da443f735eccdc700acd197f30f3e0e851b307596"
     },
     "skills/mason-opc-motion-video/LICENSE": {
       "bytes": 1066,
@@ -4167,11 +4211,11 @@
     },
     "skills/mason-opc-motion-video/PROVENANCE.md": {
       "bytes": 659,
-      "sha256": "331597c97a84b70699e9a1963060cce1f338fd0a7138d07821aaea1c70821f94"
+      "sha256": "b1dbc39809d9313d48ab624b6242bd94823bcb033861ec34a3a808a4184dafaf"
     },
     "skills/mason-opc-motion-video/SKILL.md": {
-      "bytes": 6434,
-      "sha256": "e2909bf1561b5664ac17c90e81257f64f6b015d4b8a43d9d103130c730fc609e"
+      "bytes": 7749,
+      "sha256": "b0d03259bd696d69a59cfc002468fb1059c8e48d355d29408e929b45569890df"
     },
     "skills/mason-opc-motion-video/agents/openai.yaml": {
       "bytes": 312,
@@ -4214,16 +4258,20 @@
       "sha256": "48f519569118802ec6b247916eef4dea68c2991924cc031da6c85401d925dc40"
     },
     "skills/mason-opc-motion-video/references/install.md": {
-      "bytes": 2834,
-      "sha256": "7f2c74fe0780224037669f9406986f8bea90a3c95816ff2d916d7f70cf805c18"
+      "bytes": 3224,
+      "sha256": "a49e9dc7578a7f6e8935aabc766a29dab7a98f28715d7835b6daea7a989b2d6f"
     },
     "skills/mason-opc-motion-video/references/motion-packages.md": {
       "bytes": 2621,
       "sha256": "f78b9ddd904689d9e5575ac0e26dbac92aae78ca037286b2d5745515d78ed9b0"
     },
+    "skills/mason-opc-motion-video/references/motiontemplates-catalog.json": {
+      "bytes": 48442,
+      "sha256": "631338c8a2d470b9582409a3f965bd82a65fbd3c7777290c57ce3980d0c00a21"
+    },
     "skills/mason-opc-motion-video/references/provenance.md": {
-      "bytes": 2004,
-      "sha256": "ecc40a81e163b2722d6464513e650ae80b502737f4aeda817881a2fe4936fea6"
+      "bytes": 2085,
+      "sha256": "afc1b4a0d3732e1ce4dd60d78eddde96d20edade52a0bb1f6becf47acebf1d87"
     },
     "skills/mason-opc-motion-video/references/qa.md": {
       "bytes": 1938,
@@ -4235,7 +4283,7 @@
     },
     "skills/mason-opc-motion-video/references/template-options.json": {
       "bytes": 8132,
-      "sha256": "1002460aa15eb94faa90e520c9510c05989415fdcba949dfb67069b8e1082fb1"
+      "sha256": "e3c454b1993c4f52a7def54d9175c979b696faf93bc1c814520a78058922aeee"
     },
     "skills/mason-opc-motion-video/references/template-options.md": {
       "bytes": 2386,
@@ -4258,8 +4306,8 @@
       "sha256": "f5a5f541d36c141a813ac26215a33dce842eaf3536b3a067b8cb97e8477d959c"
     },
     "skills/mason-opc-motion-video/scripts/motion.py": {
-      "bytes": 5178,
-      "sha256": "c8d977bfd367e966bb03f27c48d9872b252fc0903c1dc3d9559c7ea356181a18"
+      "bytes": 5726,
+      "sha256": "ad57f7345b6d67ff5c215a5e5a10fce0db0fea63d516b2b7e8d3eebe6ee3af2e"
     },
     "skills/mason-opc-motion-video/scripts/prepare_v03.py": {
       "bytes": 8170,
@@ -4269,21 +4317,29 @@
       "bytes": 4375,
       "sha256": "9282f8517c58d95e3c200f0669241860232f06cba5419a37c497eadefbd51dcc"
     },
+    "skills/mason-opc-motion-video/scripts/website_catalog.py": {
+      "bytes": 7785,
+      "sha256": "d34fd63d42797367958790424246b54eb60ab0827e07b88438cf068283455062"
+    },
     "使用说明.md": {
-      "bytes": 825,
-      "sha256": "354a0942deb82db8b37c31a71f49bd5d1ad5b200fc6ed328ceb8fd5b81da6df2"
+      "bytes": 1102,
+      "sha256": "764819fbaca234ddfe20c680ab9094b23394379a6e610e0a0e92201d6a02d89a"
     },
     "模板目录.json": {
       "bytes": 8132,
-      "sha256": "1002460aa15eb94faa90e520c9510c05989415fdcba949dfb67069b8e1082fb1"
+      "sha256": "e3c454b1993c4f52a7def54d9175c979b696faf93bc1c814520a78058922aeee"
     },
     "模板选型.html": {
-      "bytes": 4815,
-      "sha256": "7d02607334ff1b724c334e55e1f3d306ed48104b3c623a28e0019ccf70fc2004"
+      "bytes": 4778,
+      "sha256": "f9a11aae0fff3bdeddbda12967fb89e577c7d1e03dd49204fd00b30d36633289"
     },
     "给伙伴的提示词.txt": {
       "bytes": 524,
       "sha256": "29383a75562e8a82f7782dfdce47c09790a2683c0305091bed0f671e0f2ac9de"
+    },
+    "网站模板选型.html": {
+      "bytes": 34474,
+      "sha256": "4af328b032a1d8bcd1adf4b600d04678bef3ef58bad3cf973605345b1c575e7d"
     }
   }
 }

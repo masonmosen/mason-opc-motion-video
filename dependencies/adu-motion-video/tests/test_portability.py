@@ -60,6 +60,9 @@ class PortabilityTests(unittest.TestCase):
         self.assertEqual(int(probe['streams'][0]['nb_read_frames']), 30)
         record = json.loads(Path(str(output) + '.manifest.json').read_text())
         self.assertTrue(any('notosanssc-OFL.txt' in name for name in record['source_sha256']))
+        self.assertEqual(record['output_signature']['duration'], .5)
+        self.assertEqual(record['output_signature']['corner'], 'top-right')
+        self.assertIn('brand/motiongit-circle-path.webm', record['source_sha256'])
 
     def test_check_preserves_loudness_and_peak_on_real_encoded_audio(self):
         output = self.root / '声音 中文 & 1.mp4'

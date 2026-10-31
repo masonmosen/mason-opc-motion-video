@@ -162,6 +162,9 @@ def build_auto(plan_path, talk, output, subs_js=None, *, edit_map=None):
                   width=width,height=height,layout=dict(name=result['spec'].get('layout','landscape'),width=width,height=height),
                   scenes=scenes,parts=parts,clock='one unchanged narration master; integer frame slices',
                   boundaryPolicy='independent entries only; explicit cut between styles')
+        # The parent owns the output corner; children keep frozen scene sources.
+        shutil.copy2(ROOT/'template/output-signature.json',stage/'output-signature.json')
+        shutil.copytree(ROOT/'template/brand',stage/'brand')
         write(stage/'macro_plan.json',plan)
         write(stage/'auto_selection.json',result['report'])
         write(stage/'auto_plan.json',saved)
