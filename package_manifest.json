@@ -1,6 +1,6 @@
 {
   "schema": "mason-opc-motion-teamkit/1",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "Mason OPC 口播动效工坊",
   "edition": "public",
   "adu": {
@@ -14,8 +14,8 @@
       "sha256": "fb6edc4ee356dc08a8213000d4042596caa4781281e4cba11ee02c39fd8cefbf"
     },
     "CHANGELOG.md": {
-      "bytes": 939,
-      "sha256": "737de031911418f1969ecca59434a4fe24e760785949792e2f05e1e36532df56"
+      "bytes": 1302,
+      "sha256": "d6d255eb45fe6903a9c6d42f639c0c84f0f13b889b5a4a67cda4b01da7b63d13"
     },
     "LICENSE": {
       "bytes": 1066,
@@ -26,8 +26,8 @@
       "sha256": "fb39c03f52d5fa4aa741e11fd5414cac5cf25ab405da6b635369abbe061b1224"
     },
     "README.md": {
-      "bytes": 7771,
-      "sha256": "803d9b7364f7426061d021c998051993bdc1cfcbcd95e750a685cb27b7c6f33e"
+      "bytes": 7803,
+      "sha256": "cab9df107ec0ba9480750fccc437274d8d7935c1830bc08ebf9584321d767d22"
     },
     "dependencies/adu-motion-video/.gitignore": {
       "bytes": 439,
@@ -4202,8 +4202,8 @@
       "sha256": "c8544a0ed2f70650104b37d752c06937828e18c8ccd95fb7d4dcb83098a56ecb"
     },
     "install.py": {
-      "bytes": 9834,
-      "sha256": "6ae49a7d25d13ef0d87cb90da443f735eccdc700acd197f30f3e0e851b307596"
+      "bytes": 12580,
+      "sha256": "def84e59acea61d1afb4c07886d2994e848960ef09799933a0ca41f3c2bcb600"
     },
     "skills/mason-opc-motion-video/LICENSE": {
       "bytes": 1066,
@@ -4214,8 +4214,8 @@
       "sha256": "b1dbc39809d9313d48ab624b6242bd94823bcb033861ec34a3a808a4184dafaf"
     },
     "skills/mason-opc-motion-video/SKILL.md": {
-      "bytes": 7749,
-      "sha256": "b0d03259bd696d69a59cfc002468fb1059c8e48d355d29408e929b45569890df"
+      "bytes": 7750,
+      "sha256": "348a4018ecd73df4ab1c213b85bb046dcced664b651ac49a1873be6d79fe249e"
     },
     "skills/mason-opc-motion-video/agents/openai.yaml": {
       "bytes": 312,
@@ -4258,16 +4258,16 @@
       "sha256": "48f519569118802ec6b247916eef4dea68c2991924cc031da6c85401d925dc40"
     },
     "skills/mason-opc-motion-video/references/install.md": {
-      "bytes": 3224,
-      "sha256": "a49e9dc7578a7f6e8935aabc766a29dab7a98f28715d7835b6daea7a989b2d6f"
+      "bytes": 4107,
+      "sha256": "0bf29b16874f75ec8e3beea3859acd49ef08a3c7dd6b1068087dd471dd285139"
     },
     "skills/mason-opc-motion-video/references/motion-packages.md": {
       "bytes": 2621,
       "sha256": "f78b9ddd904689d9e5575ac0e26dbac92aae78ca037286b2d5745515d78ed9b0"
     },
     "skills/mason-opc-motion-video/references/motiontemplates-catalog.json": {
-      "bytes": 48442,
-      "sha256": "631338c8a2d470b9582409a3f965bd82a65fbd3c7777290c57ce3980d0c00a21"
+      "bytes": 62277,
+      "sha256": "21be1dd46c1c37a4c20f7baea9b6d204964739b29677ecb7e4d2bcd2570a6673"
     },
     "skills/mason-opc-motion-video/references/provenance.md": {
       "bytes": 2085,
@@ -4323,7 +4323,7 @@
     },
     "使用说明.md": {
       "bytes": 1102,
-      "sha256": "764819fbaca234ddfe20c680ab9094b23394379a6e610e0a0e92201d6a02d89a"
+      "sha256": "25ea4ac090bb195de1ef73043619d31ae0771c8989cbb84898d3f9fb0ed89f07"
     },
     "模板目录.json": {
       "bytes": 8132,
@@ -4338,8 +4338,8 @@
       "sha256": "29383a75562e8a82f7782dfdce47c09790a2683c0305091bed0f671e0f2ac9de"
     },
     "网站模板选型.html": {
-      "bytes": 34474,
-      "sha256": "4af328b032a1d8bcd1adf4b600d04678bef3ef58bad3cf973605345b1c575e7d"
+      "bytes": 44386,
+      "sha256": "d7f4e6abdcf5e5dc2c84e6555671de61d8655644ee86edc7747121aa71b1599c"
     }
   }
 }

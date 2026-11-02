@@ -58,6 +58,41 @@ def version_python(candidate):
     except (OSError,ValueError,subprocess.TimeoutExpired):pass
     return None
 
+def preflight(ffmpeg_bin=None):
+    """Read-only diagnostics; a successful probe is not an installed runtime."""
+    path = os.environ.get('PATH', '')
+    if ffmpeg_bin:
+        path = str(ffmpeg_bin.expanduser().resolve()) + os.pathsep + path
+    def probe(name, args):
+        executable = shutil.which(name, path=path)
+        if not executable:
+            return None, ''
+        try:
+            result = subprocess.run([executable] + args, capture_output=True, text=True, timeout=30)
+            return executable, result.stdout if result.returncode == 0 else ''
+        except (OSError, subprocess.TimeoutExpired):
+            return executable, ''
+    ff, version = probe('ffmpeg', ['-version'])
+    fp, probe_version = probe('ffprobe', ['-version'])
+    _, encoders = probe('ffmpeg', ['-hide_banner', '-encoders'])
+    _, decoders = probe('ffmpeg', ['-hide_banner', '-decoders'])
+    _, scale = probe('ffmpeg', ['-hide_banner', '-h', 'filter=scale'])
+    import re
+    first = version.splitlines()[0] if version else ''
+    match = re.search(r'ffmpeg version (\d+)', first)
+    colors = all(x in scale for x in ('in_transfer', 'out_primaries', 'perceptual tone mapping'))
+    paired = bool(ff and fp and Path(ff).resolve().parent == Path(fp).resolve().parent)
+    report = {'source': 'bundle_verified', 'ffmpeg': ff, 'ffmpegVersion': first or None,
+              'ffprobe': fp, 'ffprobeVersion': probe_version.splitlines()[0] if probe_version else None,
+              'sameBinDirectory': paired, 'officialColorVersionGate': bool(match and int(match.group(1)) >= 9),
+              'colorOptionsPresent': colors, 'libx264Encoder': 'libx264' in encoders,
+              'libvpxVp9Decoder': 'libvpx-vp9' in decoders,
+              'runtime': 'not_installed_or_validated', 'transparentAlpha': 'not_render_tested',
+              'export': 'not_render_tested',
+              'guidance': 'Prefer a trusted prebuilt FFmpeg 9+ with libx264 and libvpx; pass --ffmpeg-bin. macOS: Homebrew ffmpeg; Linux: conda-forge FFmpeg in an isolated micromamba environment. Verify the actual build. N- snapshot versions remain subject to upstream doctor.'}
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if all((ff, fp, paired, report['officialColorVersionGate'], colors, report['libx264Encoder'], report['libvpxVp9Decoder'])) else 1
+
 def setup(adu,env):
     python=adu/('.venv/Scripts/python.exe' if os.name=='nt' else '.venv/bin/python')
     if not python.is_file():
@@ -90,9 +125,14 @@ def main():
     p.add_argument('--adu-root',type=Path,help='reuse a complete matching existing dependency')
     p.add_argument('--ffmpeg-bin',type=Path)
     p.add_argument('--verify-only',action='store_true')
+    p.add_argument('--preflight',action='store_true',help='read-only FFmpeg capability diagnostics before installation')
     p.add_argument('--source-only',action='store_true',help='explicit incomplete-runtime installation for offline intake')
     a=p.parse_args();record=verify()
     if a.verify_only:print(json.dumps(dict(bundle='verified',version=record['version'],files=len(record['files'])),ensure_ascii=False));return
+    if a.preflight:
+        candidate=Path.home()/'.local/share/adu-motion-video/runtime/ffmpeg-9.0.2/bin'
+        selected=a.ffmpeg_bin or (candidate if (candidate/('ffmpeg.exe' if os.name=='nt' else 'ffmpeg')).is_file() else None)
+        raise SystemExit(preflight(selected))
     dest=a.dest.expanduser().absolute();state=a.state_dir.expanduser().absolute()
     source=ROOT/'skills'/NAME;target=dest/NAME
     if target.is_symlink():

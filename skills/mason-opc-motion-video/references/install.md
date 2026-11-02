@@ -41,3 +41,7 @@ python3 ~/.agents/skills/mason-opc-motion-video/scripts/bootstrap.py --dest ~/.a
 安装器会尝试更新公开网站目录，receipt中websiteCatalog的origin表明live或bundled-fallback；不能把目录条目当作已下载的个人模板。
 
 新版动态角标依赖 FFmpeg 的 libvpx-vp9 透明解码器。安装器在 doctor 之外单独检查；如缺失，请使用带 libvpx 的 FFmpeg 9+ 并通过 --ffmpeg-bin 指定，不要仅凭 doctor 声称可导出。
+
+## 安装前排查与预编译路线（1.1.1）
+
+先运行 `python3 install.py --preflight`，或 `python3 install.py --preflight --ffmpeg-bin /本机/独立/bin`。它只诊断选中的 ffmpeg/ffprobe、上游版本门槛、色彩选项、libx264 和 libvpx-vp9；不代表运行环境或透明角标实际渲染通过。结果指出源码、依赖、透明渲染和导出各自状态。优先选择可信预编译：macOS 可查 Homebrew ffmpeg；Linux 可查 conda-forge 的隔离 micromamba 环境。具体版本和依赖实时验证，不覆盖系统默认；将同目录 ffmpeg 和 ffprobe 指向 `--ffmpeg-bin`。Muse 报告 conda-forge FFmpeg 9.0.2 成功；BtbN N-快照可能被上游版本门槛拒绝，不能只靠存在选项认定受支持。实际导出含透明角标的短样，使用 libvpx-vp9 解码并检查透明区域；doctor 通过不等于出片通过。
