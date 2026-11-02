@@ -82,16 +82,20 @@ def preflight(ffmpeg_bin=None):
     match = re.search(r'ffmpeg version (\d+)', first)
     colors = all(x in scale for x in ('in_transfer', 'out_primaries', 'perceptual tone mapping'))
     paired = bool(ff and fp and Path(ff).resolve().parent == Path(fp).resolve().parent)
+    ff_version = re.search(r'ffmpeg version ([^ ]+)', first)
+    fp_first = probe_version.splitlines()[0] if probe_version else ''
+    fp_version = re.search(r'ffprobe version ([^ ]+)', fp_first)
+    versions_match = bool(ff_version and fp_version and ff_version.group(1) == fp_version.group(1))
     report = {'source': 'bundle_verified', 'ffmpeg': ff, 'ffmpegVersion': first or None,
               'ffprobe': fp, 'ffprobeVersion': probe_version.splitlines()[0] if probe_version else None,
-              'sameBinDirectory': paired, 'officialColorVersionGate': bool(match and int(match.group(1)) >= 9),
+              'sameBinDirectory': paired, 'sameToolVersion': versions_match, 'officialColorVersionGate': bool(match and int(match.group(1)) >= 9),
               'colorOptionsPresent': colors, 'libx264Encoder': 'libx264' in encoders,
               'libvpxVp9Decoder': 'libvpx-vp9' in decoders,
               'runtime': 'not_installed_or_validated', 'transparentAlpha': 'not_render_tested',
               'export': 'not_render_tested',
               'guidance': 'Prefer a trusted prebuilt FFmpeg 9+ with libx264 and libvpx; pass --ffmpeg-bin. macOS: Homebrew ffmpeg; Linux: conda-forge FFmpeg in an isolated micromamba environment. Verify the actual build. N- snapshot versions remain subject to upstream doctor.'}
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if all((ff, fp, paired, report['officialColorVersionGate'], colors, report['libx264Encoder'], report['libvpxVp9Decoder'])) else 1
+    return 0 if all((ff, fp, paired, versions_match, report['officialColorVersionGate'], colors, report['libx264Encoder'], report['libvpxVp9Decoder'])) else 1
 
 def setup(adu,env):
     python=adu/('.venv/Scripts/python.exe' if os.name=='nt' else '.venv/bin/python')
