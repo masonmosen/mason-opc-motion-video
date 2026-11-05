@@ -1,8 +1,40 @@
-# Mason OPC 口播动效工坊
+# Mason OPC Motion Video — Talking-Head Motion-Graphics Skill (101 Templates)
 
-把已有口播视频、准确文稿和自有素材做成 **可编辑动效工程 + 有声 MP4**。本项目开放 Mason 阶段采用的 v03 口播反应流，并随包保留阿杜Next 的完整公开模板库。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![GitHub stars](https://img.shields.io/github/stars/masonmosen/mason-opc-motion-video.svg)](https://github.com/masonmosen/mason-opc-motion-video/stargazers)
 
-**自由变换的人物大／中／小窗、完整头型取景、语义快切、文字与图形接力、分段配乐和音效，以及最终编码视频 QA。** 它是可读写文件、可运行命令的 Agent 使用的技能与本地生产工具，不是新的生成模型。Codex 已实际产片；Hermes / Claude 等可按各自宿主接入，其他平台须独立验证。
+**Turn a talking-head video + script into an editable motion-graphics video.**
+
+**把已有口播视频、准确文稿和自有素材做成可编辑动效工程 + 有声 MP4。**
+
+A skill and local production toolkit for agents that can read/write files and run commands — not a new generative model. Codex has shipped real films with it; Hermes / Claude and other hosts can connect per their own setup, other platforms need independent verification.
+
+## Demo
+
+> **Demo note — this is a pipeline sample, not a real talking-head film.**
+> This 12-second sample uses a synthetic placeholder portrait and beep + synthesized music only, to prove the pipeline renders, exports, and passes QA. It has **no real person on camera and no human voiceover**.
+> With a real talking-head video + accurate script, the same skill produces a full motion-graphics package with the speaker's real face, real voice, semantic cuts, and music — that is what this skill is for.
+>
+> **Demo 说明——这只是跑通流程的技术小样，不是真实口播成片。**
+> 这支 12 秒小样用的是合成占位人像，声音只有提示音加合成配乐，**没有真人出镜、没有真人配音**，只为证明工程能跑通、能导出、QA 能通过。正常用法是：拿真实口播视频 + 准确文稿进来，出来的才是带真人面孔、真人声音、语义快切和配乐的完整动效包装片。
+>
+> *Note: template chapter labels in this sample are still Traditional Chinese (e.g. 「立體光影」「示範 02」); subtitles are Simplified Chinese.*
+
+![Demo still at 6s: motion-graphics frame with subtitle](docs/demo/still_t06s.jpg)
+
+[Watch the 12-second demo (MP4, 1080×1920, 60fps)](docs/demo/demo.mp4) — synthetic placeholder portrait, beep + synthesized music only; no real person, no human voiceover. Also: [still at 2s](docs/demo/still_t02s.jpg) · [still at 10s](docs/demo/still_t10s.jpg)
+
+## Install
+
+```bash
+npx -y skills add masonmosen/mason-opc-motion-video --skill mason-opc-motion-video -a codex -g -y
+```
+
+## What you get
+
+- Mason v03 talking-head reaction flow (derived from Adu 01-B continuous morphing), editable JS / CSS, source binding, person framing, semantic clock, and sound design.
+- 101 motion templates: portrait 11 styles / 54 groups, landscape 10 styles / 47 groups.
+- Free person framing (large / medium / small windows), full head-shape framing, semantic cuts.
+- Text & graphics relay, segmented music & SFX, and final encoded-video QA.
 
 ## 包含哪些模板
 
@@ -82,3 +114,14 @@ python3 ~/.agents/skills/mason-opc-motion-video/scripts/motion.py pipeline check
 维护者：Mason OPC / [masonmosen](https://github.com/masonmosen)。
 
 新版动态角标依赖 FFmpeg 的 libvpx-vp9 透明解码器。安装器在 doctor 之外单独检查；如缺失，请使用带 libvpx 的 FFmpeg 9+ 并通过 --ffmpeg-bin 指定，不要仅凭 doctor 声称可导出。
+
+---
+
+## More from MOSEN
+
+- [muse-video-prompt-skill](https://github.com/masonmosen/muse-video-prompt-skill) — Prompt engineering workflow for Muse built-in video generation.
+- [ip-picture-workshop](https://github.com/masonmosen/ip-picture-workshop) — Photo + text → multi-page illustrated IP carousel.
+- [mosen-ad-studio](https://github.com/masonmosen/mosen-ad-studio) — Brand ads & product promos made entirely as code.
+- [remake-depth-breakdown](https://github.com/masonmosen/remake-depth-breakdown) — Reference video → depth video + Seedance-ready prompts.
+- [cueshot-starter-skills](https://github.com/masonmosen/cueshot-starter-skills) — Free starter skills for AI video shot planning & review.
+- [reference-video-blueprint](https://github.com/masonmosen/reference-video-blueprint) — Authorized reference video → original Prompt Contract.
