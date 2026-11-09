@@ -1,6 +1,6 @@
 {
   "schema": "mason-opc-motion-teamkit/1",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "displayName": "Mason OPC 口播动效工坊",
   "edition": "public",
   "adu": {
@@ -14,8 +14,8 @@
       "sha256": "fb6edc4ee356dc08a8213000d4042596caa4781281e4cba11ee02c39fd8cefbf"
     },
     "CHANGELOG.md": {
-      "bytes": 1302,
-      "sha256": "d6d255eb45fe6903a9c6d42f639c0c84f0f13b889b5a4a67cda4b01da7b63d13"
+      "bytes": 1562,
+      "sha256": "0e096096e4adf03d5d3970266a0dd4d88bd9ac37499927c24c2e518031cf2212"
     },
     "LICENSE": {
       "bytes": 1066,
@@ -26,8 +26,8 @@
       "sha256": "fb39c03f52d5fa4aa741e11fd5414cac5cf25ab405da6b635369abbe061b1224"
     },
     "README.md": {
-      "bytes": 7803,
-      "sha256": "cab9df107ec0ba9480750fccc437274d8d7935c1830bc08ebf9584321d767d22"
+      "bytes": 10849,
+      "sha256": "cbbf79f02e68be29bfc32a78d54437435a1c2524d266c356aec2d3aba19ec827"
     },
     "dependencies/adu-motion-video/.gitignore": {
       "bytes": 439,
@@ -4214,8 +4214,8 @@
       "sha256": "b1dbc39809d9313d48ab624b6242bd94823bcb033861ec34a3a808a4184dafaf"
     },
     "skills/mason-opc-motion-video/SKILL.md": {
-      "bytes": 7750,
-      "sha256": "348a4018ecd73df4ab1c213b85bb046dcced664b651ac49a1873be6d79fe249e"
+      "bytes": 7751,
+      "sha256": "d7fce0a93af9f18d5971f8aebd43364fd1a86b3a46eed03abcfa1fdddfd16d7d"
     },
     "skills/mason-opc-motion-video/agents/openai.yaml": {
       "bytes": 312,
@@ -4266,8 +4266,8 @@
       "sha256": "f78b9ddd904689d9e5575ac0e26dbac92aae78ca037286b2d5745515d78ed9b0"
     },
     "skills/mason-opc-motion-video/references/motiontemplates-catalog.json": {
-      "bytes": 62277,
-      "sha256": "21be1dd46c1c37a4c20f7baea9b6d204964739b29677ecb7e4d2bcd2570a6673"
+      "bytes": 69083,
+      "sha256": "43473cf5d5a566dc4d42c4c8a26a70e2a1b8f9e11f26eaad799a73e4b9ee04ee"
     },
     "skills/mason-opc-motion-video/references/provenance.md": {
       "bytes": 2085,
@@ -4323,7 +4323,7 @@
     },
     "使用说明.md": {
       "bytes": 1102,
-      "sha256": "25ea4ac090bb195de1ef73043619d31ae0771c8989cbb84898d3f9fb0ed89f07"
+      "sha256": "1d5062c0da6279a661f586c4f2ed9660147e9055941402fdb9b1b942120f6dac"
     },
     "模板目录.json": {
       "bytes": 8132,
@@ -4338,8 +4338,24 @@
       "sha256": "29383a75562e8a82f7782dfdce47c09790a2683c0305091bed0f671e0f2ac9de"
     },
     "网站模板选型.html": {
-      "bytes": 44386,
-      "sha256": "d7f4e6abdcf5e5dc2c84e6555671de61d8655644ee86edc7747121aa71b1599c"
+      "bytes": 49210,
+      "sha256": "f9b0d8a9352f76e52844eebaa3a2613a73c97ea585f52fcd20d59999a38b5069"
+    },
+    "docs/demo/demo.mp4": {
+      "bytes": 3021229,
+      "sha256": "1d973217a7b93329e68e46c725ff6ec950a736a6861134ba273a19cbf5e9ca92"
+    },
+    "docs/demo/still_t02s.jpg": {
+      "bytes": 139519,
+      "sha256": "0925e595289f64f8e3c387e7d4b3f48cd36a88c587e660789d08ac026a4d5b8f"
+    },
+    "docs/demo/still_t06s.jpg": {
+      "bytes": 146302,
+      "sha256": "92ce788250ab813344592e65e252ef3276ab113fc70b14ac4ac2f4054717aaa9"
+    },
+    "docs/demo/still_t10s.jpg": {
+      "bytes": 105606,
+      "sha256": "abb85b251bdb1c4b007ef70b265c67612944df45b355a4cde5a6175cb39e562b"
     }
   }
 }
